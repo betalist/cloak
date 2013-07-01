@@ -13,13 +13,13 @@ Heroku (www.heroku.com) is a platform that offers VM and hosting services for ap
 For services where a "fresh" IP address is needed, Cloak allows you to access data anonymously from a new and anonymous IP without the need for proxy services or "spoofing". 
 
 To use Cloak, you append every url call to the Cloak address. 
-1- ‘http://cloak.herokuapp.com/?http://www.whatismyip.com’ the response is then returned as a complete browser object. 
+1- http://cloak.herokuapp.com/?http://www.whatismyip.com the response is then returned as a complete browser object. 
 
 2- Cloak supports https secure connections automatically. Simply ensure the calls you want are the complete https url and Cloak will adapt. 
 
 Now your script has it’s own unique URL assigned to outgoing requests. 
 
-What to do with throttling/blocked IPs/blacklisting? Simply include a latency timer and an if statement in your script. If the latency gets too long, load “http://cloak.herokuapp.com/refresh” and wait for 15 seconds for the dynos to boot down and reconnect with Heroku and Route Director. 
+What to do with throttling/blocked IPs/blacklisting? Simply include a latency timer and an if statement in your script. If the latency gets too long, load http://cloak.herokuapp.com/refresh and wait for 15 seconds for the dynos to boot down and reconnect with Heroku and Route Director. 
 
 And there is a secret function :)
 
@@ -35,7 +35,7 @@ For example, this script (http://github.com/thnkr/cloak/examples/basic.py) demos
     from bs4 import BeautifulSoup, SoupStrainer
     import string
     import sys
-    freshIP = 'http://cloak.herokuapp.com/refresh'
+    freshIP = http://cloak.herokuapp.com/refresh
 
     target_url = 'http://www.whatismyip.com/'
     header =  {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11','Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8','Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3','Accept-Encoding': 'none','Accept-Language':     'en-US,en;q=0.8','Connection': 'keep-alive'}
